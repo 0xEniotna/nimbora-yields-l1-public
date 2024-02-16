@@ -8,7 +8,7 @@ async function main() {
   const addresses = configs[network.name];
   const poolingManager = await ethers.getContractAt(
     "PoolingManager",
-    addresses.l1PoolingManager
+    addresses.l1PoolingManager,
   );
 
   const { strategy, underlying, bridge } = addresses[strategyName];
@@ -18,7 +18,7 @@ async function main() {
   }
 
   try {
-    console.log(`Registering ${process.env.STRATEGY_NAME} strategt`);
+    console.log(`Registering ${process.env.STRATEGY_NAME} strategy`);
     await poolingManager.registerStrategy(strategy, underlying, bridge);
   } catch (error) {
     console.error("Error:", error);

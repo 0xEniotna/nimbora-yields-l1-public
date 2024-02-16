@@ -5,3 +5,7 @@ source .env
 echo Set L2 pooling Manager.
 yarn hardhat run --network ${NETWORK} scripts/setL2PoolingManager.ts
 echo
+
+# echo Strategy.
+# yarn hardhat run --network ${NETWORK} scripts/registerStrategy.ts
+# echo

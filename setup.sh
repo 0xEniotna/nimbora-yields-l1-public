@@ -2,29 +2,35 @@
 source .env
 
 # Installe dependncies
-yarn
-echo
+# yarn
+# echo
 
-# Compile contracts
-yarn hardhat compile
-echo
+# # Compile contracts
+# yarn hardhat compile
+# echo
 
-# Run tests
-yarn hardhat test
-echo
-
-# Deploy core contracts contracts
-yarn hardhat deploy --network ${NETWORK} --deploy-scripts deploy/core
-echo
+# # Run tests
+# yarn hardhat test
+# echo
 
 # Deploy core contracts contracts
-if [ ${NETWORK} != "mainnet" ]
-then
-    yarn hardhat deploy --network ${NETWORK} --deploy-scripts deploy/mocks
-    echo
-fi
+echo Deploy CORE contracts.
 
-# Deploy sDAI strategy
+# yarn hardhat deploy --network ${NETWORK} --deploy-scripts deploy/core
+# echo
+
+# Deploy core contracts contracts
+# if [ ${NETWORK} != "mainnet" ]
+# then
+#     echo Deploy mock contracts
+#     yarn hardhat deploy --network ${NETWORK} --deploy-scripts deploy/mocks
+#     echo
+    
+#     echo Deploy mock pool
+#     ./deploy-mock-uni.sh
+#     echo
+# fi
+
 echo Deploy ${STRATEGY_NAME} strategy.
 yarn hardhat deploy --network ${NETWORK} --deploy-scripts deploy/strategies/${STRATEGY_NAME}
 echo
